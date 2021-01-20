@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en" class="md">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no, viewport-fit=cover">
+
+    <link rel="apple-touch-icon" href="img/f7-icon-square.html">
+    <link rel="icon" href="img/f7-icon.html">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="vendor/bootstrap-4.1.3/css/bootstrap.min.css">
+
+    <!-- Material design icons CSS -->
+    <link rel="stylesheet" href="vendor/materializeicon/material-icons.css">
+
+    <!-- swiper carousel CSS -->
+    <link rel="stylesheet" href="vendor/swiper/css/swiper.min.css">
+
+    <!-- app CSS -->
+    <link id="theme" rel="stylesheet" href="css/style.css" type="text/css">
+    <script src="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.js"></script>
+    <link rel="stylesheet" href="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.css" />
+
+
+    <title>MobileUX</title>
+</head>
+
+<body class="color-theme-blue push-content-right theme-light">
+    <div class="wrapper">
+        <!-- sidebar left start -->
+        <div class="sidebar sidebar-left">
+            <div class="profile-link">
+                <a href="user-profile.html" class="media">
+                    <div class="w-auto h-100">
+                        <figure class="avatar avatar-40"><img src="img/user1.png" alt=""> </figure>
+                    </div>
+                    <div class="media-body">
+                        <h5 id="users_name">
+                            <script>
+                                document.getElementById('users_name').innerHTML = localStorage.getItem('users_name');
+                            </script> <span class="status-online bg-success"></span></h5>
+                        <p>Bangladesh</p>
+                    </div>
+                </a>
+            </div>
+            <nav class="navbar">
+               <ul class="navbar-nav">
+                                <li class="nav-item">
+                        <a href="all_doctors.html" class="sidebar-close">
+                            <div class="item-title">
+                                <i class="material-icons">supervisor_account</i>All Doctors
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="schedule.html" class="sidebar-close">
+                            <div class="item-title">
+                                <i class="material-icons">filter_none</i>My Appointments
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="prescriptions.html" class="sidebar-close">
+                            <div class="item-title">
+                                <i class="material-icons">list_alt</i>My Prescriptions
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="user-profile.html" class="sidebar-close">
+                            <div class="item-title">
+                                <i class="material-icons">person</i>My Profile
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="profile-link text-center" id="log">
+               
+            </div>
+        </div>
+        <!-- sidebar left ends -->
+
+        <!-- page main start -->
+        <div class="page">
+            <header class="row m-0 fixed-header">
+                <div class="left">
+                    <a href="javascript:void(0)" class="menu-left"><i class="material-icons">menu</i></a>
+                </div>
+                <div class="col center">
+                    <a href="#" class="logo">
+                        <figure><img src="img/logo.png" alt=""></figure>
+                    </a>
+                </div>
+            </header>
+            <div class="page-content">
+                <div class="content-sticky-footer">
+
+                    <div id="user"></div>
+                    <div class="col">
+                        <button type="button" class="btn update btn-info" data-toggle="modal" data-target="#recharge">Request for Recharge</button>
+                    </div>
+                    <div class="container">
+                        <table class="table table-bordered " >
+                        <!-- <thead>
+                          <tr>
+                            
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>District</th>
+                            <th>Marital Status</th>
+                            <th>Blood Group</th>
+                            <th>Education</th>
+                            <th>Height</th>
+                            <th>Weight</th>
+                          </tr>
+                        </thead> -->
+                        <tbody id="profile">
+                          
+                        </tbody>
+                      </table>
+                    </div>
+                    <h2 class="block-title">Description</h2>
+                    <div class="row mx-0">
+                        <div class="col">
+                            <p id="des">
+                                
+                            </p>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <!-- page main ends -->
+
+        <!-- assign task modal-->
+        <div class="modal fade" id="hireme" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col mt-3">
+                                <div class="login-input-content p-3">
+                                    <form action="" method="post" id="updates">
+                                        <div class="form-group">
+                                            <label>Your name</label>
+                                            <input type="text" class="form-control" id="name" name="name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input type="email" class="form-control" id="email" name="email">
+                                        </div>
+                                       <!--  <div class="form-group">
+                                            <label>Address</label>
+                                            <input type="text" class="form-control" id="address" name="address">
+                                        </div> -->
+                                        <div class="form-group">
+                                            <label>Age</label>
+                                            <input type="text" class="form-control" id="age" name="age">
+                                        </div>
+
+                                           <div class="form-group">
+                                            <label>Phone</label>
+                                            <input type="text" class="form-control" id="phone" name="phone">
+                                        </div>
+                                           <div class="form-group">
+                                            <label>height</label>
+                                            <input type="text" class="form-control" id="height" name="height">
+                                        </div>
+                                           <div class="form-group">
+                                            <label>Weight</label>
+                                            <input type="text" class="form-control" id="weight" name="weight">
+                                        </div>
+                                           <div class="form-group">
+                                            <label>Blood Group</label>
+                                            <input type="text" class="form-control" id="blood_group" name="blood_group">
+                                        </div>
+                                           <div class="form-group">
+                                            <label>Education</label>
+                                            <input type="text" class="form-control" id="education" name="education">
+                                        </div>
+                                         <div class="input-group">
+                                        
+                                        <select class="form-control" name="marital_status" id="marital_status" required>   <option value="">Select Merital Status</option>
+                                            <option value="Unmarried">Unmarried</option>
+                                            <option value="Married">Married</option>
+                       
+                       
+                                        </select>
+                                    </div>
+
+                                        <div class="input-group">
+                                        
+                                        <select class="form-control" name="district" id="district" required>  
+                                         <option value="">Select District</option>
+                                            <option value="Dhaka">Dhaka</option>
+                                            <option value="Barisal">Barisal</option>
+                                            <option value="CTG">CTG</option>
+                                            <option value="Rajshahi">Rajshahi</option>
+                                            <option value="Khulna">Khulna</option>
+                                            <option value="MS">MS</option>
+                                            <option value="Rangpur">Rangpur</option>
+                                            <option value="Cumilla">Cumilla</option>
+                                            <option value="Faridpur">Faridpur</option>
+                                            <option value="Others">Others</option>
+                       
+                       
+                                        </select>
+                                    </div>
+                                    <div class="input-group">
+                                        
+                                        <select class="form-control" name="gender" id="gender" required>   <option value="">Select Gender</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                       
+                       
+                                        </select>
+                                    </div>
+                                      <!--   <div class="form-group">
+                                            <label for="exampleFormControlTextarea1">Description</label>
+                                            <textarea class="form-control" id="description" rows="2"></textarea>
+                                        </div> -->
+                                </div>
+                                <br>
+                                <div class="row mx-0 justify-content-end no-gutters">
+                                    <div class="col">
+                                        <button type="submit" class="mb-2 btn btn-block gradient">Save</button>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- assign task modal-->
+
+
+        <div class="footer">
+            <ul class="footer-menu">
+
+                <li>
+                    <a href="intro.html" class="sidebar-close">
+                        <i class="material-icons">home</i>
+                    </a>
+                </li>
+                <li>
+                    <a href="user-profile.html" class="sidebar-close">
+                        <i class="material-icons">perm_identity</i>
+                    </a>
+                </li>
+                <li>
+                    <a href="schedule.html" class="sidebar-close">
+                        <i class="material-icons">play_for_work</i>
+                    </a>
+                </li>
+                <li>
+                    <a href="prescriptions.html" class="sidebar-close">
+                        <i class="material-icons">content_paste</i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- Request Balance Modal-->
+        <div class="modal fade" id="recharge" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col mt-3">
+                                <div class="login-input-content p-3">
+                                    <form action="" method="post" id="recharge_request">
+                                        <div class="form-group">
+                                            <label>Amount</label>
+                                            <input type="text" class="form-control" id="amount" name="amount">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="details">Details</label>
+                                            <textarea class="form-control" id="details" rows="2"></textarea>
+                                        </div>
+                                </div>
+                                <br>
+                                <div class="row mx-0 justify-content-end no-gutters">
+                                    <div class="col">
+                                        <button type="submit" class="mb-2 btn btn-block gradient">Request</button>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- assign task modal-->
+
+
+
+    </div>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1.3/js/bootstrap.min.js"></script>
+
+    <!-- Cookie jquery file -->
+    <script src="vendor/cookie/jquery.cookie.js"></script>
+
+    <!-- sparklines chart jquery file -->
+    <script src="vendor/sparklines/jquery.sparkline.min.js"></script>
+
+    <!-- Circular progress gauge jquery file -->
+    <script src="vendor/circle-progress/circle-progress.min.js"></script>
+
+    <!-- Swiper carousel jquery file -->
+    <script src="vendor/swiper/js/swiper.min.js"></script>
+
+    <!-- Application main common jquery file -->
+    <script src="js/main.js"></script>
+
+    <!-- page specific script -->
+    <!--   <script type="text/javascript" src="cordova.js"></script> -->
+    <script type="text/javascript">
+        var user_id = localStorage.getItem('user_id');
+        // console.log(user_id);
+        //  return false;
+
+        $.ajax({
+            url: "http://localhost/CnC/api/User/individualUser/" + user_id,
+            type: "get",
+            dataType: 'json',
+            success: function(data) {
+
+                $('#name').val(data[0].name);
+                $('#email').val(data[0].email);
+                $('#district').val(data[0].district);
+                $('#height').val(data[0].height);
+                $('#weight').val(data[0].weight);
+                $('#education').val(data[0].education);
+                $('#blood_group').val(data[0].blood_group);
+                $('#marital_status').val(data[0].marital_status);
+                $('#phone').val(data[0].phone);
+                $('#age').val(data[0].age);
+                $('#gender').val(data[0].gender);
+                // $('#description').val(data[0].description);
+                var output = '';
+
+                output += '<div class="row mx-0 userblock-ht"><div class="col mt-4"><a href="#" class="media"><div class="w-auto h-100"> <figure class="avatar avatar-120"><img src="img/user1.png" alt=""></figure></div><div class="media-body align-self-center "><h5>' + data[0].name + '<button type="button" id=' + data[0].id + ' class="btn btn-outline-none update" data-toggle="modal" data-target="#hireme"><i class="material-icons">edit</i></button></h5><p>' + data[0].email + '<br> ' + data[0].phone + '<br> <div id="available_balance"></div></p></div></a></div></div>';
+
+                $('#user').html(output);
+            }
+        });
+
+
+        $.ajax({
+            url: "http://localhost/CnC/api/User/get_balance/" + user_id,
+            type: "get",
+            dataType: 'json',
+            success: function(data) {
+                $('#available_balance').html(data[0].amount + ' TK');
+            }
+        });
+
+        // $(document).on('click','.update',function(){
+
+        //     var id=$(this).attr("id");
+
+
+
+
+        // });
+    </script>
+    <script type="text/javascript">
+         var user_id = localStorage.getItem('user_id');
+        // console.log(user_id);
+        //  return false;
+
+        $.ajax({
+            url: "http://localhost/CnC/api/User/individualUser/" + user_id,
+            type: "get",
+            dataType: 'json',
+            success: function(data) {
+
+                var output='<tr><th> Name </th> <td>' + data[0].name + '</td></tr><tr><th> Email </th> <td>' + data[0].email + '</td></tr><tr><th> Phone </th> <td>' + data[0].phone + '</td></tr><tr><th> Age </th> <td>' + data[0].age + '</td></tr><tr><th> Gender </th> <td>' + data[0].gender + '</td></tr><tr><th> District </th> <td>' + data[0].district + '</td></tr><tr><th> Marital Status </th> <td>' + data[0].marital_status + '</td></tr><tr><th> Bloog Group </th> <td>' + data[0].blood_group + '</td></tr><tr><th> Education </th> <td>' + data[0].education + '</td></tr><tr><th> Height </th> <td>' + data[0].height + '</td></tr><tr><th> Weight </th> <td>' + data[0].weight + '</td></tr>';
+
+                $('#profile').html(output);
+                document.getElementById('des').innerHTML=data[0].description;
+            }
+
+             
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            var user_id = localStorage.getItem('user_id');
+            // alert(user_id);
+            // return false;
+
+            $('#updates').submit(function(event) {
+                event.preventDefault();
+
+                var name=$('#name').val();
+                var email=$('#email').val();
+                var district=$('#district').val();
+                var height=$('#height').val();
+                var weight=$('#weight').val();
+                var education=$('#education').val();
+                var blood_group=$('#blood_group').val();
+                var marital_status=$('#marital_status').val();
+                var phone=$('#phone').val();
+                var age=$('#age').val();
+                var gender=$('#gender').val();
+                // var description = $('#description').val();
+
+                // alert(age);
+                // return false;
+
+                $.ajax({
+                    url: "http://localhost/CnC/api/User/updateUser/" + user_id,
+                    type: "post",
+                    // dataType:'json',
+                    data: {
+                        'email': email,
+                        'name': name,
+                        'district': district,
+                        'height': height,
+                        'weight': weight,
+                        'education': education,
+                        'blood_group': blood_group,
+                        'marital_status': marital_status,
+                        'phone': phone,
+                        'age': age,
+                        'gender': gender,
+                        // 'description': description
+
+                    },
+
+                    success: function(data) {
+
+                        if (data == 1) {
+
+                            swal("User Successfully Updated!");
+
+                            setTimeout(function() {
+                                location.reload();
+                            }, 2000);
+                        } else {
+                            swal("User Successfully Not Updated!");
+                        }
+
+                    }
+
+                });
+            });
+
+
+
+
+            $('#recharge_request').submit(function(event) {
+                event.preventDefault();
+
+                var amount = $('#amount').val();
+                var details = $('#details').val();
+
+
+                // alert(age);
+                // return false;
+
+                $.ajax({
+                    url: "http://localhost/CnC/api/User/recharge_request/" + user_id,
+                    type: "post",
+                    // dataType:'json',
+                    data: {
+                        'amount': amount,
+                        'details': details
+                    },
+                    success: function(data) {
+                        if (data == 1) {
+                            swal("Request Successfull!");
+                            setTimeout(function() {
+                                location.reload();
+                            }, 2000);
+                        } else {
+                            swal("Failed to Request!");
+                        }
+                    }
+                });
+            });
+
+
+
+
+
+
+
+
+        });
+    </script>
+
+    <script type="text/javascript">
+        var user_id = localStorage.getItem('user_id');
+        $.ajax({
+            url: "http://localhost/CnC/api/Prescriptions/allpres/" + user_id,
+            type: "get",
+            dataType: 'json',
+            success: function(data) {
+
+                // console.log(data);
+
+                var output = '';
+
+                for (var i = 0; i < data.length; i++) {
+                    output += '<ul class="list-group"><li class="list-group-item"><a href="prescription.html?appointment_id=' + data[i].id + '" class="media"><div class="media-body"><h5>Prescribed to : ' + data[i].patient_name + '</h5><p>Prescribed by : ' + data[i].doctor_name + ' </div></a></li></ul>';
+
+
+                }
+
+
+                $('#prescription').html(output);
+
+            }
+
+
+        });
+    </script>
+    <script type="text/javascript">
+        var user_id=localStorage.getItem('user_id');
+        if(user_id !== null && user_id !== ''){
+          document.getElementById('log').innerHTML ='<a  class="btn btn-outline-white btn-block px-3" id="logout">Logout</a>';
+        }else{
+        document.getElementById('log').innerHTML ='<a  class="btn btn-outline-white btn-block px-3">Login</a>';
+        // window.location.replace("main.html");
+        }
+    </script>
+      <script type="text/javascript">
+        $('#logout').click(function(){
+             localStorage.removeItem('user_id');
+             window.location.replace("main.html");
+             
+            
+        });
+    </script>
+
+
+</body>
+
+</html>

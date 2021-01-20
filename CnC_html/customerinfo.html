@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en" class="md">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no, viewport-fit=cover">
+
+    <link rel="apple-touch-icon" href="img/f7-icon-square.html">
+    <link rel="icon" href="img/f7-icon.html">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="vendor/bootstrap-4.1.3/css/bootstrap.min.css">
+
+    <!-- Material design icons CSS -->
+    <link rel="stylesheet" href="vendor/materializeicon/material-icons.css">
+
+    <!-- swiper carousel CSS -->
+    <link rel="stylesheet" href="vendor/swiper/css/swiper.min.css">
+
+    <!-- app CSS -->
+    <link id="theme" rel="stylesheet" href="css/style.css" type="text/css">
+    
+    <script src="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.js"></script>
+    <link rel="stylesheet" href="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.css" />
+
+
+
+    <title>Customer Info</title>
+</head>
+<body class="color-theme-blue">
+    <div class="loader justify-content-center ">
+        <div class="maxui-roller align-self-center">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <!-- page main start -->
+        <div class="page">
+            <div class="page-content h-100">
+                <div class="background"></div>
+                <div class="row mx-0">
+                    <div class="col text-center">
+                        <img src="img/logo.png" alt="" class="login-logo">
+                        <p class="text-white">Health Care Online</p>
+                    </div>
+                </div>
+                <div class="row mx-0 mt-100">
+                    <div class="col">
+                      <h3 class="text-warning text-center">Customer Information</h3> <br> <br>
+                        <!-- tabs content start here -->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="signin" role="tabpanel">
+                                <div class="login-input-content">
+                                  
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="material-icons">person</i></span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Name" id="name" name="name" aria-label="Username">
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="material-icons">phone</i></span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Phone" id="phone" name="phone" aria-label="Username">
+                                    </div>
+                                      <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="material-icons">person</i></span>
+                                        </div>
+                                        <input type="email" class="form-control" placeholder="Email" id="email" name="email" aria-label="Username">
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="material-icons">create</i></span>
+                                        </div>
+                                        <input type="number" class="form-control" placeholder="Quantity" aria-label="Username" id="quantity" name="quantity">
+                                    </div><div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="material-icons">home</i></span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Address" aria-label="Username" id="address" name="address">
+                                    </div>
+                                   
+                                </div>
+                                <div class="row mx-0 justify-content-end no-gutters">
+                                   <div class="col-12">
+                                        <button class="btn btn-block gradient border-0 z-3" onclick="save_data()">Order Now</button>
+                                    </div>
+                                    
+                                </div>
+                                <br>
+                                <div>
+                                        <h4 class="text-center text-white">Continue Shopping? <a href="drugstore-list.html" class="text-warning">More Shopping</a></h4>
+                                </div>
+                            </div> 
+                        </div>
+                        <!-- tabs content end here -->
+                    </div>
+                </div>
+
+                <br>
+
+            </div>
+
+        </div>
+        <!-- page main ends -->
+
+    </div>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1.3/js/bootstrap.min.js"></script>
+
+    <!-- Cookie jquery file -->
+    <script src="vendor/cookie/jquery.cookie.js"></script>
+
+    <!-- sparklines chart jquery file -->
+    <script src="vendor/sparklines/jquery.sparkline.min.js"></script>
+
+    <!-- Circular progress gauge jquery file -->
+    <script src="vendor/circle-progress/circle-progress.min.js"></script>
+
+    <!-- Swiper carousel jquery file -->
+    <script src="vendor/swiper/js/swiper.min.js"></script>
+
+    <!-- Application main common jquery file -->
+    <script src="js/main.js"></script>
+
+    <!-- page specific script -->
+
+   <!--  <script type="text/javascript" src="cordova.js"></script> -->
+
+
+
+<script type="text/javascript">
+
+		var url_string = window.location.href;
+		// alert(url_string);
+		var url = new URL(url_string);
+		var medicine_id = url.searchParams.get("id");
+		localStorage.setItem('medicine_id', medicine_id);
+		var medicine_name= url.searchParams.get("medicine_name");
+		localStorage.setItem('medicine_name', medicine_name);
+		var price= url.searchParams.get("price");
+		localStorage.setItem('price', price);
+		var store_id= url.searchParams.get("store_id");
+		localStorage.setItem('store_id', store_id);
+
+
+
+
+
+       function save_data(){
+
+       	  var price=localStorage.getItem('price');
+       	  var medicine_id=localStorage.getItem('medicine_id');
+       	  var medicine_name=localStorage.getItem('medicine_name');
+       	  var store_id=localStorage.getItem('store_id');
+          var user_id=localStorage.getItem('user_id');
+
+       	  // alert(medicine_name);
+       	  // return false;
+
+          var email = $('#email').val();
+          var name = $('#name').val();
+          var phone = $('#phone').val();
+          var quantity = $('#quantity').val();
+          var address = $('#address').val();
+          var total_price= price * quantity;
+          // alert(total_price);
+          // return false;
+
+
+          $.ajax({
+            url: "http://localhost/CnC/api/Customer/info/",
+            type: "POST",
+            dataType:'json',
+            data : {
+                 'email' : email,
+                 'name' : name,
+                 'phone' : phone,
+                 'quantity' : quantity,
+                 'address' : address,
+                 'price' :price,
+                 'medicine_name' : medicine_name,
+                 'medicine_id' : medicine_id,
+                 'total_price' : total_price,
+                 'store_id': store_id,
+                 'user_id': user_id,
+
+
+            },
+            success:function(data){
+                 //swal("User Successfully Inserted!");
+
+                 
+                
+
+                 swal({
+                          title: " Order Successfull ",
+                          text: "You Have Ordered for " + medicine_name + " And It Will Cost " + total_price + " TK",
+                          timer: 5000
+                        });
+                    setTimeout(function(){
+                     // window.location.replace("index.html");
+                     location.reload();
+                 },5000); 
+
+
+
+            
+                
+            },
+            error:function(){
+                  swal({
+                          title: "Invalid Message",
+                          text: "Something Went Wrong!",
+                          timer: 2000
+                        });
+                    setTimeout(function(){
+                    location.reload();
+                 },2000); 
+
+
+            }
+            
+        });  
+
+
+       }
+
+		
+
+
+</script>
+
+<script type="text/javascript">
+         var user_id = localStorage.getItem('user_id');
+         $.ajax({
+            url: "http://localhost/CnC/api/User/individualUser/" + user_id,
+            type: "get",
+            dataType: 'json',
+            success: function(data) {
+               $('#name').val(data[0].name);
+               $('#email').val(data[0].email);
+               $('#phone').val(data[0].phone);
+               $('#address').val(data[0].district);
+               
+
+            }
+
+        });
+
+    </script>
+
+
+</body>
+</html>	
